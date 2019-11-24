@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "e0a9d255-c3cb-423d-898e-34542f3e2fbb",
+		"name": "MVC_news_API",
+		"description": "Тесты запросов",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET_Страница регистрации",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Username",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "Password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:54250/Acc/Register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"Register"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "Admin",
+									"disabled": true
+								},
+								{
+									"key": "Password",
+									"value": "Password",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Переход на страницу регистрации"
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Открыть статью",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:54250/Home/ShowNew/1",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Home",
+								"ShowNew",
+								"1"
+							]
+						},
+						"description": "Запрос на отображение статьи и списка."
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Index",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4d8fc054-50f5-4883-95fc-1bd93d718cca",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a759108-19f2-4d8e-ad46-044df6598039",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:54250",
+							"host": [
+								"localhost"
+							],
+							"port": "54250"
+						},
+						"description": "Запрос перехода на главную страницу.Для пользователя с статусом \"Guest\" будет отображен список статей и доступна возможность авторизации и регистрации."
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Страница входа",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Acc/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Страница пользователя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Acc/UserPage?n=Admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"UserPage"
+							],
+							"query": [
+								{
+									"key": "n",
+									"value": "Admin"
+								}
+							]
+						},
+						"description": "На странице будут отображены просмотренные пользователем статьи"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST_Регистрация пользователя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Acc/Register?Username=Admin&Password=Password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"Register"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "Admin"
+								},
+								{
+									"key": "Password",
+									"value": "Password"
+								}
+							]
+						},
+						"description": "Запрос на регистрацию нового пользователя. Осуществляется проверка на наличие в базе пользователя с таким именем. Если такой пользователь отсутствует, данные добавляются в базу и происходит перенаправление на главную страницу."
+					},
+					"response": []
+				},
+				{
+					"name": "POST_Регистрация существующего пользователя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Acc/Register?Username=Admin&Password=Password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"Register"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "Admin"
+								},
+								{
+									"key": "Password",
+									"value": "Password"
+								}
+							]
+						},
+						"description": "Попытка ввода существующих в базе данных в поля регистрации"
+					},
+					"response": []
+				},
+				{
+					"name": "POST_Вход в аккаунт",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Acc/Login?Username=Admin&Password=Password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Acc",
+								"Login"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "Admin"
+								},
+								{
+									"key": "Password",
+									"value": "Password"
+								}
+							]
+						},
+						"description": "При введенни корректных данных в поля на странице входа, будет осуществлена авторизация и последующее перенаправление на главную страницу.\nЕсли введенные в поля данные некорректны или отстутствуют в базе, авторизация не будет выполнена "
+					},
+					"response": []
+				},
+				{
+					"name": "POST_Публикация статьи",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Home/NewPublish?Title=Заголовок&Text=Текст статьи",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Home",
+								"NewPublish"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Заголовок"
+								},
+								{
+									"key": "Text",
+									"value": "Текст статьи"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST_Комментирование статьи",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:54250/Home/AddComment/4?Comment=Комментарий к статье",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "54250",
+							"path": [
+								"Home",
+								"AddComment",
+								"4"
+							],
+							"query": [
+								{
+									"key": "Comment",
+									"value": "Комментарий к статье"
+								}
+							]
+						},
+						"description": "Добавление комментария к статье. Доступно только авторизованным пользователям"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
