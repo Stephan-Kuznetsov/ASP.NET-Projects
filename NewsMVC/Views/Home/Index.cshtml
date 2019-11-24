@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "News";
+}
+
+<h2>Hello, @ViewBag.Username</h2>
+
+
+@foreach (var n in ViewBag.News)
+{
+    <tr>
+        <td><p>@n.Title</p></td>
+        <td><p>@n.PostDate</p></td>
+        <td><p>@Html.ActionLink("Show", "ShowNew", new { id = n.ID })</p></td>
+    </tr>
+}
+<hr size="1" width="100%"/>
+<br/>
+@if(ViewBag.Username != "Guest")
+{
+    <h3>@Html.ActionLink("Опубликовать статью", "NewPublish")</h3>
+}

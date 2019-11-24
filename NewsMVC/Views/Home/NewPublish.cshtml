@@ -1,0 +1,21 @@
+﻿@model NewsMVC.Models.New
+@{
+    ViewBag.Title = "NewPublish";
+}
+
+<h2>Создание статьи</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<ol>
+    <li>
+        @Html.Label("Заголовок");
+        @Html.TextBoxFor(m => m.Title)
+    </li>
+    <li>
+        @Html.Label("Текст статьи")
+        @Html.TextBoxFor(m => m.Text)
+    </li>
+</ol>
+<input type="submit" value="Опубликовать" />
+}

@@ -1,0 +1,10 @@
+﻿@if(ViewBag.Username != "Guest" && ViewBag.Username != null)
+{
+    <text>
+    @Html.ActionLink("Профиль", "UserPage", "Acc", new { n = ViewBag.Username }, null)
+    @Html.ActionLink("Выйти", "LogOut", "Acc", new { n = ViewBag.Username }, null)
+    </text>
+} else {
+    <a href="/Acc/Login">Войти</a>
+    <a href="/Acc/Register">Регистрация</a>
+}

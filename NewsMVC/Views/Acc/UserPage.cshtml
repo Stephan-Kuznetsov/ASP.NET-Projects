@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "UserPage";
+}
+
+<p><h1>Привет, @ViewBag.Username</h1></p>
+<h2>Просмотренные статьи</h2>
+
+<ol>
+    @foreach (var n in ViewBag.Checked)
+    {
+
+        <li><b>@n.Title</b>, опубликовано: @n.PostDate</li>
+    }
+</ol>
