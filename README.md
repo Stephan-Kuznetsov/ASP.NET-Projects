@@ -12,3 +12,5 @@
   -System.Web
   -System.Data.Entity
   -System.Collections
+
+Файл MVC_news_API.postman_collection.json содержит коллекцию запросов, сформированных в программе Postman
